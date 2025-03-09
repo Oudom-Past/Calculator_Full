@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Calculator</title>
+    <link rel="stylesheet" href="style.css" />
+    <script type="text/javascript" src="script.js"></script>
+    <link
+      rel="icon"
+      href="https://cdn-icons-png.flaticon.com/512/1828/1828817.png"
+      type="image/png"
+    />
+  </head>
+  <body>
+    <h1>Calculator</h1>
+    <form name="calcform">
+      <input type="text" name="show" readonly />
+      <table>
+        <tr>
+          <td>
+            <button type="button" onclick="calcform.show.value = ''">C</button>
+          </td>
+          <td>
+            <button type="button" onclick="clearLastEntry()">CE</button>
+          </td>
+          <td>
+            <button type="button" onclick="calcform.show.value += '%'">
+              %
+            </button>
+          </td>
+          <td>
+            <button
+              type="button"
+              onclick="calcform.show.value = Math.sqrt(calcform.show.value)"
+            >
+              √
+            </button>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <button type="button" onclick="calcform.show.value += '1'">
+              1
+            </button>
+          </td>
+          <td>
+            <button type="button" onclick="calcform.show.value += '2'">
+              2
+            </button>
+          </td>
+          <td>
+            <button type="button" onclick="calcform.show.value += '3'">
+              3
+            </button>
+          </td>
+          <td>
+            <button type="button" onclick="calcform.show.value += '+'">
+              +
+            </button>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <button type="button" onclick="calcform.show.value += '4'">
+              4
+            </button>
+          </td>
+          <td>
+            <button type="button" onclick="calcform.show.value += '5'">
+              5
+            </button>
+          </td>
+          <td>
+            <button type="button" onclick="calcform.show.value += '6'">
+              6
+            </button>
+          </td>
+          <td>
+            <button type="button" onclick="calcform.show.value += '-'">
+              -
+            </button>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <button type="button" onclick="calcform.show.value += '7'">
+              7
+            </button>
+          </td>
+          <td>
+            <button type="button" onclick="calcform.show.value += '8'">
+              8
+            </button>
+          </td>
+          <td>
+            <button type="button" onclick="calcform.show.value += '9'">
+              9
+            </button>
+          </td>
+          <td>
+            <button type="button" onclick="calcform.show.value += '*'">
+              *
+            </button>
+          </td>
+        </tr>
+        <tr>
+          <td colspan="2">
+            <button
+              type="button"
+              class="zero"
+              onclick="calcform.show.value += '0'"
+            >
+              0
+            </button>
+          </td>
+          <td>
+            <button type="button" onclick="calculate()">=</button>
+          </td>
+          <td>
+            <button type="button" onclick="calcform.show.value += '/'">
+              /
+            </button>
+          </td>
+        </tr>
+      </table>
+    </form>
+    <script>
+      function calculate() {
+        try {
+          calcform.show.value = eval(calcform.show.value);
+        } catch (e) {
+          calcform.show.value = "Error";
+        }
+      }
+
+      function clearLastEntry() {
+        calcform.show.value = calcform.show.value.slice(0, -1);
+      }
+    </script>
+  </body>
+</html>
